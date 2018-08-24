@@ -8,7 +8,8 @@ const defaultState= {
   credentials:{'isLoggedIn':false},
   products: [],
   inventory:[],
-  cart:{cartTotal:0,cartItems:[]}
+  cart:{cartTotal:0,cartItems:[]},
+  displayMessage:{open:false,type:'',message:''}
 }
 
 const store =createStore(rootReducer,defaultState, applyMiddleware(thunk));

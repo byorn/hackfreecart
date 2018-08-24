@@ -1,7 +1,7 @@
 class Config{
 
     static serviceUrl(){
-        return 'http://localhost:5000'
+        return 'http://localhost:5000';
     }
     
 }

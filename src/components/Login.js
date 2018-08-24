@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import { Route, Redirect } from 'react-router-dom'
+import { Redirect,Link } from 'react-router-dom'
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import * as actionCreators from '../actions/loginActions';
@@ -10,7 +10,6 @@ import Grid from '@material-ui/core/Grid';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
-
 import Button from '@material-ui/core/Button';
 import { withStyles } from '@material-ui/core/styles';
 
@@ -22,6 +21,17 @@ const styles = theme => ({
         ...theme.mixins.gutters(),
         paddingTop: theme.spacing.unit * 2,
         paddingBottom: theme.spacing.unit * 2,
+        width:'18%',
+      
+        [theme.breakpoints.down('md')]: {
+            width:'30%',
+        },
+        [theme.breakpoints.down('sm')]: {
+            width:'40%',
+        },
+        [theme.breakpoints.down('xs')]: {
+            width:'60%',
+        },
       },
     
   });
@@ -59,7 +69,7 @@ class Login extends Component {
 
         }else{
 
-            return    <Grid container>
+            return   <Grid container>
                            <Grid item xs={12} ms={12} lg={12} container>
                             <AppBar position="static" color="primary">
                                             <Toolbar>
@@ -71,9 +81,9 @@ class Login extends Component {
                             </Grid>
 
                                                        
-                            <Grid item xs={12} ms={12} lg={12} container spacing={24} className="margin-top">
+                            <Grid item xs={12} ms={12} lg={12} container spacing={16} className="margin-top">
                                            
-                                    <Grid container spacing={24} alignContent="center" justify="center" data-test="login-form">
+                                    <Grid container spacing={16} alignContent="center" justify="center" data-test="login-form">
                                     <Paper className={classes.paper} elevation={1}>
                                         <Typography variant="headline" component="h3">
                                          Login
@@ -111,6 +121,21 @@ class Login extends Component {
                                                             color="primary" className={classes.width_100}> Login </Button>
   
                                                    
+                                            </Grid>
+                                            <Grid item xs={12}>&nbsp;</Grid>
+                                            <Grid item xs={12}>
+                                                <a href="#">
+                                                <Typography variant="caption" gutterBottom align="left">
+                                                    Forgot Password
+                                               </Typography>
+                                               </a>
+                                            </Grid>
+                                            <Grid item xs={12}>
+                                                <Link to={`/createAccount`}>
+                                                    <Typography variant="caption" gutterBottom align="left">
+                                                        Create Account
+                                                </Typography>
+                                               </Link>
                                             </Grid>
                                         </Paper>
                                     </Grid>

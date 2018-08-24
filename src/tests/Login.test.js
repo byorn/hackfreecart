@@ -29,7 +29,7 @@ describe('Testing the Login Component', ()=>{
         const wrapper = setup({},null,{credentials:{isLoggedIn:true}});
         const appComponent = findByTestAttr(wrapper, 'logged-in');
         expect(appComponent.length).toBe(1);
-      });
+    });
 
   
 });
