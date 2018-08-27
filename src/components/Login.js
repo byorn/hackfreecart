@@ -56,6 +56,11 @@ class Login extends Component {
         });
     };
 
+    componentDidMount() {
+        console.log('GrandChild did mount.');
+        const {checkLogin} = this.props;
+        checkLogin();
+    }
     
     render() {
 
