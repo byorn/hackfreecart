@@ -101,14 +101,14 @@ class MainApp extends React.Component {
           <ListItemIcon>
             <InboxIcon />
         </ListItemIcon>
-        <ListItemText primary="Profile" /> 
+        <ListItemText primary="Dashboard" /> 
         </ListItem>   
         <Divider />
         <ListItem button component={Link} to='/profile' onClick={this.handleDrawerToggle}>
           <ListItemIcon>
             <InboxIcon />
         </ListItemIcon>
-        <ListItemText primary="Profile" />
+        <ListItemText primary="Categories" />
      
        </ListItem>
     
@@ -117,7 +117,7 @@ class MainApp extends React.Component {
           <ListItemIcon>
             <InboxIcon />
         </ListItemIcon>
-        <ListItemText primary="Catalog" />
+        <ListItemText primary="Products" />
         </ListItem>
       </div>
     );
@@ -164,6 +164,7 @@ class MainApp extends React.Component {
                   open={open}
                   onClose={this.handleClose}
                 >
+                  <MenuItem onClick={this.handleClose} component={Link} to='/catalog'>My Profile</MenuItem>
                   <MenuItem onClick={this.handleClose}>Sign out</MenuItem>
          
                 </Menu>
@@ -187,7 +188,7 @@ class MainApp extends React.Component {
             {drawer}
           </Drawer>
         </Hidden>
-        <Hidden smDown implementation="css" className="testme">
+        <Hidden smDown implementation="css" className="sidebar-background">
           <Drawer
             variant="permanent"
             open

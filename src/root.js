@@ -14,6 +14,8 @@ const RootApp = () => (
                      <Route exact path="/" component={Login} />
                      <Route exact path="/createAccount" component={CreateAccount} />
                      <Route exact path="/app" component={MainApp} />
+                     <Route path="/*" component={MainApp} />
+                   
                     </Switch>
                 
               </Router>
