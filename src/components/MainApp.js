@@ -21,6 +21,9 @@ import ShoppingCart from '@material-ui/icons/ShoppingCart';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
+import Config from '../util/Config';
+import './MainApp.css';
+
 const drawerWidth = 240;
 
 const styles = theme => ({
@@ -54,11 +57,13 @@ const styles = theme => ({
     [theme.breakpoints.up('md')]: {
       position: 'relative',
     },
+    'background-image': 'url(\'/imgs/river.png\')',
   },
   content: {
     flexGrow: 1,
     backgroundColor: theme.palette.background.default,
     padding: theme.spacing.unit * 3,
+    
   },
   drawerHeader:{
     height:'64px',
@@ -88,7 +93,8 @@ class MainApp extends React.Component {
     const { classes, theme } = this.props;
     const { anchorEl } = this.state;
     const open = Boolean(anchorEl);
-    
+    const baseURL=Config.getBaseURL();
+
     const drawer = (
       <div>
         <ListItem button component={Link} to='/profile' onClick={this.handleDrawerToggle}>
@@ -117,7 +123,7 @@ class MainApp extends React.Component {
     );
 
     return (
-      <Router>
+      <Router basename={baseURL}>
       <div className={classes.root}>
     
         <AppBar className={classes.appBar}>
@@ -181,7 +187,7 @@ class MainApp extends React.Component {
             {drawer}
           </Drawer>
         </Hidden>
-        <Hidden smDown implementation="css">
+        <Hidden smDown implementation="css" className="testme">
           <Drawer
             variant="permanent"
             open

@@ -4,11 +4,11 @@ import MainApp from './components/MainApp';
 import Login from './components/Login';
 import CreateAccount from './components/CreateAccount';
 import DisplayMessage from './components/DisplayMessage';
-
+import Config from './util/Config';
 
 const RootApp = () => (
               <div data-test="root-app">
-              <Router basename="/hackfreecart">
+              <Router basename={Config.getBaseURL()}>
              
                     <Switch>
                      <Route exact path="/" component={Login} />
