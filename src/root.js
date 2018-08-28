@@ -8,7 +8,7 @@ import DisplayMessage from './components/DisplayMessage';
 
 const RootApp = () => (
               <div data-test="root-app">
-              <Router>
+              <Router basename="/hackfreecart">
              
                     <Switch>
                      <Route exact path="/" component={Login} />
