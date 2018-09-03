@@ -23,6 +23,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
 import Config from '../util/Config';
 import './MainApp.css';
+import Util from '../util/Util';
 
 const drawerWidth = 240;
 
@@ -87,6 +88,13 @@ class MainApp extends React.Component {
 
   handleClose = () => {
     this.setState({ anchorEl: null });
+  };
+
+  handleCloseAndLogOut = () => {
+    Util.logout();
+   // this.setState({ anchorEl: null });
+
+
   };
 
   render() {
@@ -164,8 +172,8 @@ class MainApp extends React.Component {
                   open={open}
                   onClose={this.handleClose}
                 >
-                  <MenuItem onClick={this.handleClose} component={Link} to='/catalog'>My Profile</MenuItem>
-                  <MenuItem onClick={this.handleClose}>Sign out</MenuItem>
+                  <MenuItem onClick={this.handleClose} component={Link} to='/profile'>My Profile</MenuItem>
+                  <MenuItem onClick={this.handleCloseAndLogOut}>Sign out</MenuItem>
          
                 </Menu>
 

@@ -8,5 +8,19 @@ class Util{
         localStorage.setItem('token', token);
         localStorage.setItem('user',JSON.stringify(user))
     }
+
+    static logout(){
+        localStorage.removeItem('token');
+        localStorage.removeItem('user');
+        window.location.assign('/');
+       
+    }
+
+    static getUserId(){
+        if(localStorage.getItem('user')){
+            return JSON.parse(localStorage.getItem('user'))._id;
+        }
+        return null;
+    }
 }
 export default Util;

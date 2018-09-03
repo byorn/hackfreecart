@@ -1,5 +1,6 @@
 import Config from '../util/Config'
 import axios from 'axios';
+import Util from '../util/Util';
 
 class LoginService {
   static login(username, password) {
@@ -22,7 +23,8 @@ class LoginService {
       headers: {
         'x-auth-token': localStorage.getItem('token'),
       },
-      url: Config.serviceUrl() + '/me',
+      url: Config.serviceUrl() + '/users/'+Util.getUserId(),
+ 
     })
     .then((data)=>{
        return data;

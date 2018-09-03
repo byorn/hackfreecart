@@ -5,7 +5,7 @@ import rootReducer from './reducers/index';
 
 //create an onject for the default data
 const defaultState= {
-  credentials:{'isLoggedIn':false},
+  credentials:{'isLoggedIn':false, 'user':{}},
   products: [],
   inventory:[],
   cart:{cartTotal:0,cartItems:[]},

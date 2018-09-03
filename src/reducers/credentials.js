@@ -2,13 +2,21 @@ function credentials(state = {}, action){
   
   switch(action.type){
     case 'DO_LOGIN':
-        if(action.obj.length > 0){
-           return {'isLoggedIn':true};
-        }
+        
+        let newState = {...state};
+        newState.isLoggedIn = true;
+        newState.user = action.obj;
+     
+        return newState;
     case 'CREATED_ACCOUNT':
-        return {'isLoggedIn':true};
+        let newState1 = {...state};
+        newState1.isLoggedIn = true;
+        newState1.user = action.obj;
+    
+        return newState1;
     default:
-    return state;
+   
+        return state;
   }
 
 }

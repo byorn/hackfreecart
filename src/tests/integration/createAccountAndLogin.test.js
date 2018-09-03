@@ -9,9 +9,10 @@ describe('Testing actions for createAccountActions and displayMessageActions', (
 
     beforeEach(() => {
         moxios.install();
-        localStorage.clear();
+        
     });
     afterEach(() => {
+       jest.clearAllMocks();
        moxios.uninstall();
     });
 
@@ -22,7 +23,7 @@ describe('Testing actions for createAccountActions and displayMessageActions', (
             expect(store.getState().displayMessage).toEqual(displayMessageState);
     });
 
-    test('should add the token and user to LocalStorage when createAccount is Success',()=>{
+    test('should add to LocalStorage when createAccount is Success',()=>{
     
        const store = teststore({});
        moxios.stubRequest(Config.serviceUrl()+"/users", {
