@@ -1,6 +1,7 @@
 import CreateAccountService from '../services/CreateAccountService';
 import Util from '../util/Util';
 import * as displayMessageActions from '../actions/displayMessageActions';
+import { doLoggin } from '../actions/loginActions';
 import {actionTypes} from './actionTypes';
 
 export function createAccount(obj) {
@@ -11,7 +12,7 @@ export function createAccount(obj) {
 
         if(result.status == 200){
           Util.saveUserTokenAndUserToLocalStorage(result.headers['x-auth-token'],result.data);
-          dispatch(createdAccount(result.data));
+          dispatch(doLoggin(result.data));
         }
         else{
           dispatch(displayMessageActions.displayError(result.response.data));
@@ -25,11 +26,6 @@ export function createAccount(obj) {
    
 }
 
-export function createdAccount(obj){
-  return {
-    type: actionTypes.CREATED_ACCOUNT,
-    obj
-  };
-}
+
 
 

@@ -6,7 +6,9 @@ function displayMessage(state = {}, action){
       newState.open=false;
       return newState;
     case 'DISPLAY_ERROR':
-      return {'open':true, 'type':'error', 'message':action.message};      
+      return {'open':true, 'type':'error', 'message':action.message};  
+    case 'DISPLAY_SUCCESS':
+      return {'open':true, 'type':'success', 'message':action.message};      
     default:
       return state;
   }

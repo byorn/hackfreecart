@@ -1,5 +1,6 @@
 import UserService from '../services/UserService';
 import * as displayMessageActions from './displayMessageActions';
+import {doLoggin} from './loginActions';
 import {actionTypes} from './actionTypes';
 
 export function updateUser(user, id) {
@@ -9,7 +10,8 @@ export function updateUser(user, id) {
     return UserService.updateUser(user, id).then(result => {
       if(result.status == 200){
         
-        dispatch(userSaved(result.data));
+        dispatch(doLoggin(result.data));
+        dispatch(displayMessageActions.displaySuccess('Saved User Successfully!'));
       }else{
         dispatch(displayMessageActions.displayError(result.response.data));
       }

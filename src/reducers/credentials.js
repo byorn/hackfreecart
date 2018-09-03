@@ -8,12 +8,7 @@ function credentials(state = {}, action){
         newState.user = action.obj;
      
         return newState;
-    case 'CREATED_ACCOUNT':
-        let newState1 = {...state};
-        newState1.isLoggedIn = true;
-        newState1.user = action.obj;
-    
-        return newState1;
+   
     default:
    
         return state;

@@ -58,7 +58,7 @@ const styles = theme => ({
     [theme.breakpoints.up('md')]: {
       position: 'relative',
     },
-    'background-image': 'url(\'/imgs/river.png\')',
+    'background-image': 'url(\'/hackfreecart/imgs/river.png\')',
   },
   content: {
     flexGrow: 1,
