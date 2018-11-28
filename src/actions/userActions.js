@@ -23,6 +23,22 @@ export function updateUser(user, id) {
    
 }
 
+export function updateProfilePic(obj, id){
+
+  return (dispatch) => {
+    return UserService.updateProfilePic(obj, id).then(result => {
+      if(result.status == 200){
+         dispatch(displayMessageActions.displaySuccess('Saved User Successfully!'));
+      }else{
+        dispatch(displayMessageActions.displayError(result.response.data));
+      }
+    }).catch(error => {
+      throw (error);
+    });
+ } 
+
+}
+
 export function userSaved(user){
   return {
     type: actionTypes.USER_SAVED,

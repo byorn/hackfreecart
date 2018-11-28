@@ -1,6 +1,7 @@
 class Config{
 
     static serviceUrl(){
+        //return 'http://www.hackfreeapps.org/hackfreeservice';
         return 'http://localhost:5000';
     }
 

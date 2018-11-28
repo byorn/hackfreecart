@@ -20,6 +20,24 @@ class UserService {
     });
   }
 
+  static updateProfilePic(obj,id) {
+
+    return axios({
+      method: 'put',
+      headers: {
+        'x-auth-token': localStorage.getItem('token'),
+      },
+      url: Config.serviceUrl() + '/users_updatepic/'+id,
+      data: obj
+    })
+    .then((data)=>{
+       return data;
+    })
+    .catch(function(error) {
+      return error;
+    });
+  }
+
 }
 
 export default UserService;

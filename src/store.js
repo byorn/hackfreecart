@@ -9,7 +9,8 @@ const defaultState= {
   products: [],
   inventory:[],
   cart:{cartTotal:0,cartItems:[]},
-  displayMessage:{open:false,type:'',message:''}
+  displayMessage:{open:false,type:'',message:''},
+  categories: []
 }
 
 const store =createStore(rootReducer,defaultState, applyMiddleware(thunk));

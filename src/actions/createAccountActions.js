@@ -2,7 +2,7 @@ import CreateAccountService from '../services/CreateAccountService';
 import Util from '../util/Util';
 import * as displayMessageActions from '../actions/displayMessageActions';
 import { doLoggin } from '../actions/loginActions';
-import {actionTypes} from './actionTypes';
+
 
 export function createAccount(obj) {
   

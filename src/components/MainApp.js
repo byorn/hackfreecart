@@ -13,6 +13,7 @@ import MenuIcon from '@material-ui/icons/Menu';
 import { Route,BrowserRouter as Router,Switch,Link } from 'react-router-dom'
 import Profile from './Profile';
 import Catalog from './Catalog';
+import Category from './Category';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
@@ -30,7 +31,6 @@ const drawerWidth = 240;
 const styles = theme => ({
   root: {
     flexGrow: 1,
-    height: 430,
     zIndex: 1,
     overflow: 'hidden',
     position: 'relative',
@@ -112,7 +112,7 @@ class MainApp extends React.Component {
         <ListItemText primary="Dashboard" /> 
         </ListItem>   
         <Divider />
-        <ListItem button component={Link} to='/profile' onClick={this.handleDrawerToggle}>
+        <ListItem button component={Link} to='/categories' onClick={this.handleDrawerToggle}>
           <ListItemIcon>
             <InboxIcon />
         </ListItemIcon>
@@ -216,7 +216,8 @@ class MainApp extends React.Component {
           </Typography>
           <Switch>
                   <Route exact path="/profile" component={Profile} />
-                  <Route exact path="/catalog" component={Catalog} /> 
+                  <Route exact path="/catalog" component={Catalog} />
+                  <Route exact path="/categories" component={Category} /> 
           </Switch>
         </main>
       

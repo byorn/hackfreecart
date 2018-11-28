@@ -6,6 +6,12 @@ import Button from '@material-ui/core/Button';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import * as actionCreators from '../actions/userActions';
+import CloudUploadIcon from '@material-ui/icons/CloudUpload';
+import FileUpload from './FileUpload';
+import TraditionalFileUpload from './TraditionalFileUpload';
+import Util from '../util/Util';
+import Config from '../util/Config';
+
 
 class Profile extends Component{
 
@@ -24,7 +30,8 @@ class Profile extends Component{
    
       this.setState({ name:credentials.user.name, 
                       email:credentials.user.email,
-                      password:''
+                      password:'',
+                      pic:credentials.user.pic
                     });
     }
 
@@ -34,12 +41,19 @@ class Profile extends Component{
       });
     };
 
-    onFileLoad = (e, file) => console.log(e.target.result, file.name);
+    onImageUpload = (fileId) => {
+      const {updateProfilePic} = this.props;
+      const obj = {pic:fileId};
+      const id = Util.getUserId();
+     
+      updateProfilePic(obj, id);
+      this.setState({ pic: fileId});
+    }
 
     save=()=>{
       const {updateUser} = this.props;
       const userObj = {email:this.state.email,name:this.state.name, password:this.state.password};
-      const id = JSON.parse(localStorage.getItem('user'))._id;
+      const id = Util.getUserId();
      
       updateUser(userObj, id);
     };
@@ -116,8 +130,24 @@ class Profile extends Component{
                     </Grid>
          </Grid>
          <Grid item  xs={12} ms={6} lg={6}>
-                           <img src="/imgs/Capture.PNG"/>   
-          </Grid>
+                       
+                           <img width="100" height="100" src={Util.getImageUrl(this.state.pic)}/>  
+                           {/* <input
+        accept="image/*"
+        
+        id="contained-button-file"
+        multiple
+        type="file"
+      /> 
+                         <label htmlFor="contained-button-file">
+                           <Button variant="contained" component="span"  color="default">
+                             Upload
+                              <CloudUploadIcon/>
+                            </Button>
+                            </label> */}
+                            <TraditionalFileUpload onImageUpload={this.onImageUpload}/>
+                         
+         </Grid>
        
           </Grid>
       </div>
