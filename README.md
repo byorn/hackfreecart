@@ -4,3 +4,5 @@
 
 <h4>Technologies</h4>
 React / Redux / Thunk / Axios / Jest / Enzyme
+
+use lodash memoize to cache results

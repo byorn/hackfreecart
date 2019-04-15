@@ -13,6 +13,7 @@ import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import { withStyles } from '@material-ui/core/styles';
 
+
 const styles = theme => ({
     width_100: {
       width:'100%',
@@ -40,14 +41,9 @@ const styles = theme => ({
 
 class Login extends Component {
 
-    constructor(props){
-        super(props);
-        
-        this.state = {
-            username:'',
-            password:''
-        }
-    
+    state = {
+        username:'',
+        password:''
     }
 
     handleChange = name => event => {
@@ -63,17 +59,13 @@ class Login extends Component {
     
     render() {
 
-
         const {classes, appstate, login} = this.props;
-
-      
+     
         if(appstate.credentials.isLoggedIn){
-
             return   <Redirect to="/app"  data-test="logged-in"/>
-
         }else{
-
-            return   <Grid container>
+            return (  
+             <Grid container>
                            <Grid item xs={12} ms={12} lg={12} container>
                             <AppBar position="static" color="primary">
                                             <Toolbar>
@@ -84,24 +76,27 @@ class Login extends Component {
                             </AppBar>         
                             </Grid>
 
-                                                       
+                                                  
                             <Grid item xs={12} ms={12} lg={12} container spacing={16} className="margin-top">
                                            
                                     <Grid container spacing={16} alignContent="center" justify="center" data-test="login-form">
+                                 
                                     <Paper className={classes.paper} elevation={1}>
                                         <Typography variant="headline" component="h3">
                                          Login
                                         </Typography>
        
-       
+                                             <form style={{width:"100%"}}>       
                                              <Grid item xs={12}>
                                              <TextField
-                                                id="id_username"
+                                                id="username"
                                                 label="Username"
                                                 value={this.state.username}
                                                 onChange={this.handleChange('username')}
                                                 margin="normal"
                                                 className={classes.width_100}
+                                                autoComplete="username"
+                                            
                                                 />
                                             </Grid>
                                                                                                                    
@@ -109,7 +104,7 @@ class Login extends Component {
 
 
                                                <TextField
-                                                id="id_password"
+                                                id="current-password"
                                                 label="Password"
                                                 type="password"
                                                 value={this.state.password}
@@ -119,6 +114,7 @@ class Login extends Component {
                                                 className={classes.width_100}
                                                 />
                                             </Grid>
+                                            </form>
 
                                             <Grid item xs={12}>
                                             <Button variant="contained" onClick = {login.bind(null,this.state.username, this.state.password)} 
@@ -128,11 +124,11 @@ class Login extends Component {
                                             </Grid>
                                             <Grid item xs={12}>&nbsp;</Grid>
                                             <Grid item xs={12}>
-                                                <a href="#">
-                                                <Typography variant="caption" gutterBottom align="left">
-                                                    Forgot Password
-                                               </Typography>
-                                               </a>
+                                                <Link to={`/forgotPassword`}>
+                                                    <Typography variant="caption" gutterBottom align="left">
+                                                        Forgot Password
+                                                </Typography>
+                                               </Link>
                                             </Grid>
                                             <Grid item xs={12}>
                                                 <Link to={`/createAccount`}>
@@ -142,10 +138,14 @@ class Login extends Component {
                                                </Link>
                                             </Grid>
                                         </Paper>
+                                      
                                     </Grid>
                                                 
                             </Grid>  
+                          
                     </Grid>
+
+            )
             
                                     
             
@@ -155,7 +155,7 @@ class Login extends Component {
     }
 
 }
-function mapStateToProps(state){
+  function mapStateToProps(state){
     return {
               appstate:state
            }

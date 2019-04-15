@@ -8,43 +8,41 @@ import Util from '../util/Util';
 import TextField from '@material-ui/core/TextField';
 class CategoryForm extends Component{
 
-    constructor(props){
-        super(props);
-        this.state = {
-          _id:'',
-          name: '',
-          description: '',
-          pic: ''
-        }
-    }
+  state = {
+    _id:'',
+    name: '',
+    description: '',
+    pic: ''
+  }
+    
 
-    handleChange = name => event => {
-        this.setState({
-          [name]: event.target.value,
-        });
-      };
-  
-      handleRTEChange = val => {
-        this.setState({
-          description:val
-        });
-      }
+  handleChange = name => event => {
+    this.setState({
+      [name]: event.target.value,
+    });
+  };
 
-      updateCategory = () => {
-          const categoryObj = this.state;
-          
-          this.props.onUpdateCategory(categoryObj);
-      }
-  
-      onImageUpload = image => {
-        this.setState({pic: image});
-      }
+  handleRTEChange = val => {
+    this.setState({
+      description:val
+    });
+  }
 
-      componentWillReceiveProps(props){
-          const {_id,name,description, pic} = props.category;
-          
-          this.setState({_id:_id,name:name, description: description, pic: pic});
-      }
+  updateCategory = () => {
+      const categoryObj = this.state;
+      
+      this.props.onUpdateCategory(categoryObj);
+  }
+
+  onImageUpload = image => {
+    this.setState({pic: image});
+  }
+
+  componentWillReceiveProps(props){
+      const {_id,name,description, pic} = props.category;
+      
+      this.setState({_id:_id,name:name, description: description, pic: pic});
+  }
 
     
     render(){
@@ -66,7 +64,7 @@ class CategoryForm extends Component{
                                      <HackRichTextEditor onChange={this.handleRTEChange} value={this.state.description}/>
                             </Grid>
                             <Grid item xs={12} ms={12} lg={12}>
-                                <img width="100" height="100" src={Util.getImageUrl(this.state.pic)}/> 
+                                <img alt="file upload" width="100" height="100" src={Util.getImageUrl(this.state.pic)}/> 
                                 <TraditionalFileUpload onImageUpload={this.onImageUpload}/>
                             </Grid>
                             <Grid item xs={12} ms={12} lg={12}>

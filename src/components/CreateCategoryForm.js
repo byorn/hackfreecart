@@ -1,15 +1,11 @@
 import React, {Component} from 'react';
-import Typography from '@material-ui/core/Typography';
-import AddIcon from '@material-ui/icons/Add';
 import Button from '@material-ui/core/Button';
-import Grid from '@material-ui/core/Grid';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import TextField from '@material-ui/core/TextField';
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
-import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import HackRichTextEditor from './HackRichTextEditor';
 import { withStyles } from '@material-ui/core/styles';
@@ -26,17 +22,13 @@ const styles = {
 };
 
 class CreateCategoryForm extends Component{
-
-    constructor(props){
-        super(props);
-        this.state = {
-          name: '',
-          description: '',
-          pic: ''
-        }
-    }
-
-    handleChange = name => event => {
+   state = {
+      name: '',
+      description: '',
+      pic: ''
+   }
+   
+   handleChange = name => event => {
       this.setState({
         [name]: event.target.value,
       });
@@ -97,7 +89,7 @@ class CreateCategoryForm extends Component{
           <InputLabel>Description</InputLabel>
           <HackRichTextEditor onChange={this.handleRTEChange} value={this.state.description}/>
           <br/><br/>
-          <img width="100" height="100" src={Util.getImageUrl(this.state.pic)}/> 
+          <img alt="category" width="100" height="100" src={Util.getImageUrl(this.state.pic)}/> 
           <TraditionalFileUpload onImageUpload={this.onImageUpload}/>
         </DialogContent>
         <DialogActions>

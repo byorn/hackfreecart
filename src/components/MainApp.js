@@ -4,7 +4,6 @@ import { withStyles } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
-import List from '@material-ui/core/List';
 import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
 import Hidden from '@material-ui/core/Hidden';
@@ -18,13 +17,13 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import InboxIcon from '@material-ui/icons/MoveToInbox';
-import ShoppingCart from '@material-ui/icons/ShoppingCart';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
 import Config from '../util/Config';
 import './MainApp.css';
 import Util from '../util/Util';
+
 
 const drawerWidth = 240;
 
@@ -127,6 +126,13 @@ class MainApp extends React.Component {
         </ListItemIcon>
         <ListItemText primary="Products" />
         </ListItem>
+        <Divider />
+        <ListItem button component={Link} to='/scrap' onClick={this.handleDrawerToggle}>
+          <ListItemIcon>
+            <InboxIcon />
+        </ListItemIcon>
+        <ListItemText primary="Scrap Work" />
+        </ListItem>
       </div>
     );
 
@@ -218,6 +224,7 @@ class MainApp extends React.Component {
                   <Route exact path="/profile" component={Profile} />
                   <Route exact path="/catalog" component={Catalog} />
                   <Route exact path="/categories" component={Category} /> 
+                
           </Switch>
         </main>
       

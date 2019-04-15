@@ -16,7 +16,7 @@ class DisplayMessage extends Component{
 
     render(){
 
-     const {displayMessage,closeDisplayMessage} = this.props;   
+     const {displayMessage} = this.props;   
 
      return <Snackbar
                 anchorOrigin={{

@@ -1,19 +1,14 @@
-import React, {Component, PropTypes} from 'react';
+import React, {Component} from 'react';
 import RichTextEditor from 'react-rte';
 import './HackRichTextEditor.css';
 class HackRichTextEditor extends Component {
-
-  constructor(props){
-   
-  super(props);
- 
-  this.state = {
+  
+  state = {
     value: this.props.value?RichTextEditor.createValueFromString(this.props.value, 'html'):RichTextEditor.createEmptyValue()
   }
-}
- 
+  
   onChange = (value) => {
-   // this.setState({value});
+    // this.setState({value});
     if (this.props.onChange) {
       // Send the changes up to the parent component as an HTML string.
       // This is here to demonstrate using `.toString()` but in a real app it

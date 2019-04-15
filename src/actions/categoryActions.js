@@ -9,7 +9,7 @@ export function createCategory(obj) {
       
       return CategoryService.createCategory(obj).then(result => {
   
-          if(result.status == 200){
+          if(result.status === 200){
             dispatch(categorySaved(result.data));
             dispatch(displayMessageActions.displaySuccess('Saved Category Successfully!'));
           }
@@ -32,7 +32,7 @@ export function createCategory(obj) {
       
       return CategoryService.updateCategory(obj).then(result => {
   
-          if(result.status == 200){
+          if(result.status === 200){
             dispatch(categorySaved(result.data));
             dispatch(displayMessageActions.displaySuccess('Saved Category Successfully!'));
           }
@@ -54,7 +54,7 @@ export function createCategory(obj) {
       
       return CategoryService.deleteCategory(_id).then(result => {
   
-          if(result.status == 200){
+          if(result.status === 200){
             dispatch(categoryDeleted(_id));  
             dispatch(displayMessageActions.displaySuccess('Deleted Category Successfully!'));
           }
@@ -70,18 +70,31 @@ export function createCategory(obj) {
      
   }
 
-  export function loadCategories() {
-    return (dispatch) => {
+  //esy6 function that returns a function
+
+  export const loadCategories = () =>  async dispatch =>  {
       //dispatch(itemsIsLoading(true));
-      return CategoryService.loadCategories().then(data => {
-       
-        dispatch(categoriesLoaded(data.data));
-      }).catch(error => {
-        console.log(error);
-        dispatch(displayMessageActions.displayError(error));
-      });
+      try{
+         const data = await CategoryService.loadCategories();   
+         dispatch(categoriesLoaded(data.data));
+      }catch(error){
+         dispatch(displayMessageActions.displayError(error));
+      }
+  };
+  
+  /*
+  export const loadCategories = () => {
+    return async (dispatch, getState) =>  {
+      //dispatch(itemsIsLoading(true));
+      try{
+         const data = await CategoryService.loadCategories();   
+         dispatch(categoriesLoaded(data.data));
+      }catch(error){
+         dispatch(displayMessageActions.displayError(error));
+      }
     };
   };
+  */
 
   export function categoryDeleted(_id) {
     return {

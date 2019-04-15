@@ -6,11 +6,9 @@ import Button from '@material-ui/core/Button';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import * as actionCreators from '../actions/userActions';
-import CloudUploadIcon from '@material-ui/icons/CloudUpload';
-import FileUpload from './FileUpload';
 import TraditionalFileUpload from './TraditionalFileUpload';
 import Util from '../util/Util';
-import Config from '../util/Config';
+
 
 
 class Profile extends Component{
@@ -131,7 +129,7 @@ class Profile extends Component{
          </Grid>
          <Grid item  xs={12} ms={6} lg={6}>
                        
-                           <img width="100" height="100" src={Util.getImageUrl(this.state.pic)}/>  
+                           <img alt="profile" width="100" height="100" src={Util.getImageUrl(this.state.pic)}/>  
                            {/* <input
         accept="image/*"
         

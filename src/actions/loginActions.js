@@ -3,41 +3,23 @@ import Util from '../util/Util';
 import * as displayMessageActions from '../actions/displayMessageActions';
 import {actionTypes} from './actionTypes';
 
-export function login(username, password) {
- 
-  return (dispatch) => {
-  
-    return LoginService.login(username,password).then(result => {
-      if(result.status == 200){
+export const  login = (username, password) => async dispatch => {
+    const result = await LoginService.login(username,password)
+      if(result.status === 200){
         Util.saveUserTokenAndUserToLocalStorage(result.headers['x-auth-token'],result.data);
         dispatch(doLoggin(result.data));
       }else{
         dispatch(displayMessageActions.displayError(result.response.data));
       }
-    }).catch(error => {
-      throw (error);
-    });
-
-  };
-   
 }
 
-export function checkLogin() {
- 
-  return (dispatch) => {
-  
-    return LoginService.checkLogin().then(result => {
-
-      if(result.status==200){
+export const checkLogin = ()=>async dispatch=> {
+  if(Util.getUserId()){
+    const result = await LoginService.checkLogin();
+    if(result.status===200){
         dispatch(doLoggin(result.data));
-      }
-
-    }).catch(error => {
-      throw (error);
-    });
-
-  };
-   
+    }  
+ }
 }
 
 export function doLoggin(obj){
