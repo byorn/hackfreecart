@@ -60,7 +60,7 @@ class Profile extends Component{
 
             
         return  <div>
-        <Typography variant="headline" component="h3">
+        <Typography variant="h6" component="h3">
            Profile
         </Typography>
         <Typography component="p">

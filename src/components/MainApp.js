@@ -12,7 +12,8 @@ import MenuIcon from '@material-ui/icons/Menu';
 import { Route,BrowserRouter as Router,Switch,Link } from 'react-router-dom'
 import Profile from './Profile';
 import Catalog from './Catalog';
-import Category from './Category';
+import CategorySearch from './category/CategorySearch';
+import CategoryEdit from './category/CategoryEdit';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
@@ -62,7 +63,7 @@ const styles = theme => ({
   content: {
     flexGrow: 1,
     backgroundColor: theme.palette.background.default,
-    padding: theme.spacing.unit * 3,
+    padding: theme.spacing(3),
     
   },
   drawerHeader:{
@@ -151,7 +152,7 @@ class MainApp extends React.Component {
               <MenuIcon />
             </IconButton>
           
-            <Typography variant="title" color="inherit" noWrap className={classes.flex}>
+            <Typography variant="h5" color="inherit" noWrap className={classes.flex}>
               HackFreeCart Admin
             </Typography>
 
@@ -216,15 +217,12 @@ class MainApp extends React.Component {
         <main className={classes.content}>
         
           <div className={classes.toolbar} />
-          <Typography noWrap>
-          
-          
-          </Typography>
+        
           <Switch>
                   <Route exact path="/profile" component={Profile} />
                   <Route exact path="/catalog" component={Catalog} />
-                  <Route exact path="/categories" component={Category} /> 
-                
+                  <Route exact path="/categories" component={CategorySearch} /> 
+                  <Route exact path="/categories/edit/:id" component={CategoryEdit} /> 
           </Switch>
         </main>
       

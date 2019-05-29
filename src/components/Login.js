@@ -20,8 +20,8 @@ const styles = theme => ({
     },
     paper: {
         ...theme.mixins.gutters(),
-        paddingTop: theme.spacing.unit * 2,
-        paddingBottom: theme.spacing.unit * 2,
+        paddingTop: theme.spacing(2),
+        paddingBottom: theme.spacing(2),
         width:'18%',
       
         [theme.breakpoints.down('md')]: {
@@ -69,7 +69,7 @@ class Login extends Component {
                            <Grid item xs={12} ms={12} lg={12} container>
                             <AppBar position="static" color="primary">
                                             <Toolbar>
-                                            <Typography variant="title" color="inherit">
+                                            <Typography variant="h6" color="inherit">
                                                 HackFreeCart.com
                                             </Typography>
                                             </Toolbar>
@@ -77,12 +77,12 @@ class Login extends Component {
                             </Grid>
 
                                                   
-                            <Grid item xs={12} ms={12} lg={12} container spacing={16} className="margin-top">
+                            <Grid item xs={12} ms={12} lg={12} container spacing={10} className="margin-top">
                                            
-                                    <Grid container spacing={16} alignContent="center" justify="center" data-test="login-form">
+                                    <Grid container spacing={10} alignContent="center" justify="center" data-test="login-form">
                                  
                                     <Paper className={classes.paper} elevation={1}>
-                                        <Typography variant="headline" component="h3">
+                                        <Typography variant="h5" component="h3">
                                          Login
                                         </Typography>
        

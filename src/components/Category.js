@@ -61,7 +61,7 @@ class Category extends Component{
       
         return <Grid container>
                 <Grid item xs={2} ms={2} lg={2}>
-                        <Typography variant="headline" component="h3">
+                        <Typography variant="h6" component="h3">
                         Categories
                         </Typography>
                         <Typography component="p">

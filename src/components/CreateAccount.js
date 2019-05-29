@@ -22,8 +22,8 @@ const styles = theme => ({
     },
     paper: {
         ...theme.mixins.gutters(),
-        paddingTop: theme.spacing.unit * 2,
-        paddingBottom: theme.spacing.unit * 2,
+        paddingTop: theme.spacing(2),
+        paddingBottom: theme.spacing(2),
         width:'18%',
       
         [theme.breakpoints.down('md')]: {
@@ -118,7 +118,7 @@ class CreateAccount extends Component {
                                            
                         <Grid container spacing={16} alignContent="center" justify="center">
                             <Paper className={classes.paper} elevation={1}>
-                                    <Typography variant="headline" component="h3">
+                                    <Typography variant="h6" component="h3">
                                          Create Account
                                     </Typography>
               
@@ -165,7 +165,7 @@ class CreateAccount extends Component {
                                     </Grid>
                                     <Grid item xs={12}>
                                                 <Link to={`/`}>
-                                                    <Typography variant="caption" gutterBottom align="left">
+                                                    <Typography variant="h6" gutterBottom align="left">
                                                         Log in
                                                 </Typography>
                                                </Link>

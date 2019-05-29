@@ -82,20 +82,6 @@ export function createCategory(obj) {
       }
   };
   
-  /*
-  export const loadCategories = () => {
-    return async (dispatch, getState) =>  {
-      //dispatch(itemsIsLoading(true));
-      try{
-         const data = await CategoryService.loadCategories();   
-         dispatch(categoriesLoaded(data.data));
-      }catch(error){
-         dispatch(displayMessageActions.displayError(error));
-      }
-    };
-  };
-  */
-
   export function categoryDeleted(_id) {
     return {
       type: actionTypes.CATEGORY_DELETED,
