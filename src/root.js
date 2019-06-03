@@ -5,9 +5,23 @@ import Login from './components/Login';
 import CreateAccount from './components/CreateAccount';
 import DisplayMessage from './components/DisplayMessage';
 import Config from './util/Config';
+import { createMuiTheme } from '@material-ui/core/styles';
+import purple from '@material-ui/core/colors/purple';
+import green from '@material-ui/core/colors/green';
+import { ThemeProvider } from '@material-ui/styles';
+const theme = createMuiTheme({
+  palette: {
+    primary: purple,
+    secondary: green,
+  },
+  status: {
+    danger: 'orange',
+  },
+});
 
 const RootApp = () => (
               <div data-test="root-app">
+              <ThemeProvider  theme={theme}>
               <Router basename={Config.getBaseURL()}>
              
                     <Switch>
@@ -20,6 +34,7 @@ const RootApp = () => (
                 
               </Router>
               <DisplayMessage/>
+              </ThemeProvider >
               </div>
             )
 
