@@ -6,3 +6,5 @@
 React / Redux / Thunk / Axios / Jest / Enzyme
 
 use lodash memoize to cache results
+
+testing pr
